@@ -49,21 +49,20 @@ body {
     }
 }
 
-/* Header Styling (Further Adjusted for mobile-first, even more compact) */
+/* Header Styling (Adjusted for mobile-first, more compact) */
 .main-header {
     background-color: var(--bg-color-dark);
     color: var(--text-color-light);
-    padding: 0.8rem 0.5rem; /* Reduced padding for a very compact mobile header */
+    padding: 1rem; /* Reduced padding for mobile */
     text-align: center;
     box-shadow: 0 4px 6px -1px var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* Removed min-height: 50vh; to allow content to dictate height */
-    display: flex; /* Use flexbox to align content */
-    flex-direction: column; /* Stack vertically on mobile */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center content vertically if space allows */
+    min-height: 50vh; /* Target around 50% of viewport height for mobile */
+    display: flex; /* Use flexbox to center content vertically */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
 
 .header-content {
@@ -72,37 +71,36 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.3rem; /* Even smaller gap for mobile */
+    gap: 0.5rem; /* Reduced gap for mobile */
 }
 
 .main-header h1 {
-    font-size: 1.5rem; /* Even smaller font for mobile title */
+    font-size: 1.8rem; /* Smaller font for mobile title */
     font-weight: 700;
-    margin-bottom: 0.2rem; /* Reduced margin */
+    margin-bottom: 0.5rem;
 }
 
 .main-header p {
-    font-size: 0.8rem; /* Even smaller font for mobile subtitle */
+    font-size: 0.9rem; /* Smaller font for mobile subtitle */
     opacity: 0.8;
-    margin-bottom: 0.5rem; /* Reduced margin */
 }
 
 .main-header nav {
-    margin-top: 0.5rem; /* Reduced margin */
+    margin-top: 1rem;
     display: flex;
     flex-wrap: wrap; /* Allow wrapping on small screens */
     justify-content: center;
-    gap: 0.6rem; /* Reduced gap for mobile navigation items */
+    gap: 0.8rem; /* Reduced gap for mobile navigation items */
 }
 
 .main-header nav a {
     color: var(--text-color-light);
     text-decoration: none;
     font-weight: 600;
-    padding: 0.3rem 0.6rem; /* Smaller padding for mobile nav items */
-    border-radius: 0.4rem; /* Slightly smaller border-radius */
+    padding: 0.4rem 0.8rem; /* Smaller padding for mobile nav items */
+    border-radius: 0.5rem;
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 0.85rem; /* Smaller font for mobile nav items */
+    font-size: 0.9rem; /* Smaller font for mobile nav items */
 }
 
 .main-header nav a:hover {
@@ -114,9 +112,8 @@ body {
 @media (min-width: 768px) { /* md */
     .main-header {
         padding: 1.5rem 1rem; /* Restore desktop padding */
-        min-height: auto; /* Ensure no fixed height */
+        min-height: auto; /* Remove fixed height for desktop */
         justify-content: flex-start; /* Align content to start for desktop */
-        flex-direction: row; /* Align horizontally for desktop */
     }
     .header-content {
         flex-direction: row;
@@ -174,12 +171,46 @@ section h2 {
     }
 }
 
-/* Before-and-After Section */
+/* Before-and-After Section (with video background) */
 .before-after-section {
-    background-color: var(--bg-color-dark);
+    background-color: var(--bg-color-dark); /* Fallback background color */
     color: var(--text-color-light);
-    padding-top: 5rem; /* More space for the header */
+    padding-top: 5rem;
     padding-bottom: 5rem;
+    position: relative; /* Crucial for positioning video background */
+    overflow: hidden; /* Hide overflow from video */
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Send video to back */
+}
+
+.video-background iframe {
+    width: 100vw; /* Cover full viewport width */
+    height: 56.25vw; /* 16:9 aspect ratio (height = width * 0.5625) */
+    min-height: 100%;
+    min-width: 177.77vh; /* Width = height * 1.7777 (16/9) */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the video */
+    pointer-events: none; /* Allow clicks to pass through to elements below */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    z-index: 1; /* Above video, below content */
 }
 
 .mission-statement {
@@ -187,10 +218,19 @@ section h2 {
     margin: 0 auto 3rem auto;
     font-size: 1.125rem;
     line-height: 1.8;
+    position: relative; /* Bring text above overlay */
+    z-index: 2;
 }
 
+.mission-statement p {
+    opacity: 1; /* Ensure full visibility of text */
+    color: var(--text-color-light); /* Explicitly set color */
+}
+
+
 .before-after-container {
-    position: relative;
+    position: relative; /* Bring slider above overlay */
+    z-index: 2;
     width: 90%; /* Fluid width */
     max-width: 900px; /* Max width for larger screens */
     margin: 0 auto;
@@ -260,6 +300,8 @@ section h2 {
     font-size: 0.9rem;
     color: var(--text-color-light);
     opacity: 0.8;
+    position: relative; /* Bring captions above overlay */
+    z-index: 2;
 }
 
 /* Timeline Section */
