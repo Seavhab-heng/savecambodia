@@ -25,9 +25,10 @@
 }
 
 .map-display {
-    height: 400px; /* Fixed height for map on small screens */
+    height: 450px; /* Increased height for full Cambodia map on small screens */
     width: 100%;
     border-bottom: 1px solid var(--border-color); /* Separator on small screens */
+    border-radius: 1rem; /* Rounded corners for the map itself */
 }
 
 .province-data-panel {
@@ -35,6 +36,8 @@
     text-align: left;
     background-color: var(--card-bg);
     color: var(--text-color-dark);
+    max-height: 300px; /* Limit height on mobile, allow scroll */
+    overflow-y: auto;
 }
 
 .province-data-panel h2 {
@@ -76,7 +79,7 @@
 
     .map-container-wrapper {
         flex-direction: row; /* Side-by-side on larger screens */
-        height: 600px; /* Fixed height for map container */
+        height: 650px; /* Fixed height for map container */
     }
 
     .map-display {
@@ -103,8 +106,24 @@
     transition: fill-opacity 0.3s ease, stroke-width 0.3s ease;
 }
 
-.leaflet-interactive:hover {
-    fill-opacity: 0.7;
-    stroke-width: 3px;
+/* Heatmap Legend Styling */
+.info.legend {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 14px;
+    color: var(--text-color-dark);
+}
+.info.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+    border-radius: 3px;
+}
+.info.legend div {
+    margin-bottom: 5px;
 }
 
