@@ -49,16 +49,20 @@ body {
     }
 }
 
-/* Header Styling */
+/* Header Styling (Adjusted for mobile-first, more compact) */
 .main-header {
     background-color: var(--bg-color-dark);
     color: var(--text-color-light);
-    padding: 1.5rem 1rem;
+    padding: 1rem; /* Reduced padding for mobile */
     text-align: center;
     box-shadow: 0 4px 6px -1px var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 1000;
+    min-height: 50vh; /* Target around 50% of viewport height for mobile */
+    display: flex; /* Use flexbox to center content vertically */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
 
 .header-content {
@@ -67,17 +71,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.5rem; /* Reduced gap for mobile */
 }
 
 .main-header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Smaller font for mobile title */
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
 .main-header p {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Smaller font for mobile subtitle */
     opacity: 0.8;
 }
 
@@ -86,16 +90,17 @@ body {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping on small screens */
     justify-content: center;
-    gap: 1rem;
+    gap: 0.8rem; /* Reduced gap for mobile navigation items */
 }
 
 .main-header nav a {
     color: var(--text-color-light);
     text-decoration: none;
     font-weight: 600;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem; /* Smaller padding for mobile nav items */
     border-radius: 0.5rem;
     transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.9rem; /* Smaller font for mobile nav items */
 }
 
 .main-header nav a:hover {
@@ -103,22 +108,32 @@ body {
     color: var(--bg-color-light);
 }
 
-/* Responsive Header */
+/* Responsive Header for Larger Screens (md breakpoint and up) */
 @media (min-width: 768px) { /* md */
+    .main-header {
+        padding: 1.5rem 1rem; /* Restore desktop padding */
+        min-height: auto; /* Remove fixed height for desktop */
+        justify-content: flex-start; /* Align content to start for desktop */
+    }
     .header-content {
         flex-direction: row;
         justify-content: space-between;
-        gap: 1rem;
+        gap: 1rem; /* Restore desktop gap */
     }
     .main-header h1 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Restore desktop font size */
         margin-bottom: 0;
     }
     .main-header p {
-        font-size: 1.125rem;
+        font-size: 1.125rem; /* Restore desktop font size */
     }
     .main-header nav {
         margin-top: 0;
+        gap: 1rem; /* Restore desktop nav gap */
+    }
+    .main-header nav a {
+        padding: 0.5rem 1rem; /* Restore desktop nav padding */
+        font-size: 1rem; /* Restore desktop nav font size */
     }
 }
 
@@ -383,30 +398,89 @@ section h2 {
     padding: 5rem 1rem;
 }
 
-.donate-section p {
+.donate-section .donate-intro-text {
     font-size: 1.125rem;
     margin-bottom: 2rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
 }
 
-.donate-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--text-color-light);
-    padding: 1rem 2.5rem;
-    border-radius: 0.75rem;
-    text-decoration: none;
+.donation-sessions-container {
+    display: flex;
+    flex-direction: column; /* Stack vertically on small screens */
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+}
+
+.donation-session {
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 10px -2px var(--shadow-light);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.donation-session h3 {
+    font-size: 1.75rem;
     font-weight: 700;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px -1px var(--shadow-md);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
-.donate-button:hover {
-    background-color: #2563EB; /* Blue-600 */
-    transform: translateY(-3px);
+.donation-session p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    max-width: 400px; /* Constrain text width */
+}
+
+.qr-code {
+    width: 180px; /* Fixed size for QR code */
+    height: 180px;
+    border: 4px solid var(--secondary-color);
+    border-radius: 0.75rem;
+    object-fit: contain; /* Ensure QR code is fully visible */
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.scan-instruction {
+    font-size: 0.9rem;
+    color: var(--text-color-dark);
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+.transparency-note {
+    font-size: 0.9rem;
+    color: var(--text-color-dark);
+    opacity: 0.8;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive Donation Sessions */
+@media (min-width: 768px) { /* md */
+    .donation-sessions-container {
+        flex-direction: row; /* Arrange horizontally on larger screens */
+        justify-content: center;
+        align-items: stretch; /* Make cards same height */
+    }
+
+    .donation-session {
+        flex: 1; /* Distribute space equally */
+        max-width: 30%; /* Limit individual card width */
+        padding: 2.5rem;
+    }
 }
 
 /* Footer Styling */
