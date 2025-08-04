@@ -59,7 +59,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    min-height: 50vh; /* Target around 50% of viewport height for mobile */
+    min-height: 40vh; /* Slightly reduced min-height for mobile to be more compact */
     display: flex; /* Use flexbox to center content vertically */
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
@@ -71,36 +71,37 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem; /* Reduced gap for mobile */
+    gap: 0.4rem; /* Further reduced gap for mobile */
 }
 
 .main-header h1 {
-    font-size: 1.8rem; /* Smaller font for mobile title */
+    font-size: 1.6rem; /* Smaller font for mobile title */
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem; /* Reduced margin */
 }
 
 .main-header p {
-    font-size: 0.9rem; /* Smaller font for mobile subtitle */
+    font-size: 0.85rem; /* Smaller font for mobile subtitle */
     opacity: 0.8;
+    margin-bottom: 0.8rem; /* Reduced margin */
 }
 
 .main-header nav {
-    margin-top: 1rem;
+    margin-top: 0.5rem; /* Reduced margin-top */
     display: flex;
     flex-wrap: wrap; /* Allow wrapping on small screens */
     justify-content: center;
-    gap: 0.8rem; /* Reduced gap for mobile navigation items */
+    gap: 0.7rem; /* Reduced gap for mobile navigation items */
 }
 
 .main-header nav a {
     color: var(--text-color-light);
     text-decoration: none;
     font-weight: 600;
-    padding: 0.4rem 0.8rem; /* Smaller padding for mobile nav items */
-    border-radius: 0.5rem;
+    padding: 0.3rem 0.7rem; /* Smaller padding for mobile nav items */
+    border-radius: 0.4rem; /* Slightly smaller border-radius */
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 0.9rem; /* Smaller font for mobile nav items */
+    font-size: 0.85rem; /* Smaller font for mobile nav items */
 }
 
 .main-header nav a:hover {
@@ -121,11 +122,11 @@ body {
         gap: 1rem; /* Restore desktop gap */
     }
     .main-header h1 {
-        font-size: 2.5rem; /* Restore desktop font size */
+        font-size: 2.2rem; /* Adjusted desktop font size for professionalism */
         margin-bottom: 0;
     }
     .main-header p {
-        font-size: 1.125rem; /* Restore desktop font size */
+        font-size: 1rem; /* Adjusted desktop font size */
     }
     .main-header nav {
         margin-top: 0;
@@ -544,4 +545,5 @@ img {
     height: auto;
     display: block; /* Remove extra space below images */
 }
+
 
