@@ -1,428 +1,104 @@
-/* Import Google Font - Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divided Lands, Shared History: Cambodia-Thailand Border Conflict</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    </head>
 
-/* Base Styles & Reset */
-:root {
-    --primary-color: #3B82F6; /* Blue-500 */
-    --secondary-color: #10B981; /* Green-500 */
-    --text-color-dark: #1F2937; /* Gray-900 */
-    --text-color-light: #F9FAFB; /* Gray-50 */
-    --bg-color-light: #F9FAFB; /* Gray-50 */
-    --bg-color-dark: #1F2937; /* Gray-900 */
-    --card-bg: #FFFFFF; /* White */
-    --border-color: #E5E7EB; /* Gray-200 */
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-md: rgba(0, 0, 0, 0.2);
-}
+<body>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Divided Lands, Shared History</h1>
+            <p>A Documentary of the Cambodia-Thailand Border Conflict</p>
+            <nav>
+                <a href="#timeline">Timeline</a>
+                <a href="map.html">Interactive Map</a>
+                <a href="support.html">Support & News</a>
+                <a href="#donate">Donate</a>
+            </nav>
+        </div>
+    </header>
 
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color-dark);
-    background-color: var(--bg-color-light);
-    scroll-behavior: smooth;
-}
+    <section id="opener" class="before-after-section">
+        <div class="mission-statement">
+            <p>This website documents the 2025 Cambodia-Thailand border conflict, using official government statements, media evidence, and historical context to provide an accurate, fact-based timeline of events.</p>
+        </div>
+        
+        <div class="before-after-container">
+            <img class="before-image" src="images/preah-vihear-before.jpg" alt="Preah Vihear Temple Before Conflict">
+            <img class="after-image" src="images/preah-vihear-after.jpg" alt="Preah Vihear Temple After Conflict">
+            </div>
+        <div class="slider-captions">
+            <span class="before-caption">July 23, 2025: A fragile peace on a long-disputed border.</span>
+            <span class="after-caption">July 25, 2025: The aftermath of border clashes.</span>
+        </div>
+    </section>
 
-/* Utility Classes (mimicking Tailwind for responsiveness) */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem; /* Default padding for small screens */
-}
+    <section id="timeline" class="timeline-section">
+        <h2>Timeline of Government Actions</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-event">
+                <div class="event-date">July 24, 2025</div>
+                <h3>The Escalation</h3>
+                <p><strong>[Time of first report]</strong> First gunfire exchanged on the border. Both sides accuse the other of initiating the conflict. Thailand’s Ministry of Foreign Affairs claims Cambodian forces opened fire near the Prasat Ta Muen Thom temple, while Cambodia's Prime Minister Hun Manet describes Thai actions as "unprovoked."</p>
+                <div class="government-release-link">
+                    <a href="#">Read Official Statements</a>
+                </div>
+            </div>
 
-/* Responsive Padding */
-@media (min-width: 640px) { /* sm */
-    .container {
-        padding: 1.5rem;
-    }
-}
+            <div class="timeline-event">
+                <div class="event-date">July 25, 2025</div>
+                <h3>International Intervention</h3>
+                <p><strong>[Morning]</strong> UN Security Council holds urgent meeting. Both Cambodia and Thailand send letters to the UN, presenting their opposing accounts. The UN Secretary-General urges "utmost restraint" and a peaceful resolution.</p>
+                <div class="government-release-link">
+                    <a href="#">View UN Documents</a>
+                </div>
+            </div>
 
-@media (min-width: 768px) { /* md */
-    .container {
-        padding: 2rem;
-    }
-}
+            <div class="timeline-event">
+                <div class="event-date">July 26, 2025</div>
+                <h3>Calls for De-escalation</h3>
+                <p><strong>[Day]</strong> Following a closed-door meeting, the UN Security Council calls on both nations to "exercise maximum restraint" and "cease hostilities."</p>
+                <div class="government-release-link">
+                    <a href="#">Read Security Council Statement</a>
+                </div>
+            </div>
 
-/* Header Styling */
-.main-header {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-light);
-    padding: 1.5rem 1rem;
-    text-align: center;
-    box-shadow: 0 4px 6px -1px var(--shadow-md);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+            <div class="timeline-event">
+                <div class="event-date">July 28, 2025</div>
+                <h3>The Ceasefire</h3>
+                <p><strong>[Time of agreement]</strong> A ceasefire agreement is reached, with the UN Secretary-General issuing a statement welcoming the resolution. Both sides, however, continue to release statements on provocations.</p>
+                <div class="government-release-link">
+                    <a href="#">Read Official Statements</a>
+                </div>
+            </div>
 
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
+        </div>
+    </section>
 
-.main-header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
+    <section id="deeper-look" class="deeper-look-section">
+        <div class="deeper-look-content">
+            <h2>Beyond the Headlines: The Roots of the Conflict</h2>
+            <p>The July 2025 conflict is the latest chapter in a long history of disputes. Understand the origins of this long-standing issue, from the 1904 Franco-Siamese treaty to the 1962 International Court of Justice ruling on the Preah Vihear temple.</p>
+            <a href="#" class="cta-button">Explore the Full History</a>
+        </div>
+    </section>
 
-.main-header p {
-    font-size: 1rem;
-    opacity: 0.8;
-}
+    <section id="donate" class="donate-section">
+        <h2>Support Our Work</h2>
+        <p>Your donation helps us maintain the website, conduct research, and ensure this historical record remains accessible to all.</p>
+        <a href="#" class="donate-button">Donate Now</a>
+    </section>
 
-.main-header nav {
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    justify-content: center;
-    gap: 1rem;
-}
+    <footer class="main-footer">
+        <p>&copy; 2025 Project: Cambodia-Thailand Conflict. All rights reserved.</p>
+    </footer>
 
-.main-header nav a {
-    color: var(--text-color-light);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.main-header nav a:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color-light);
-}
-
-/* Responsive Header */
-@media (min-width: 768px) { /* md */
-    .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-    .main-header h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0;
-    }
-    .main-header p {
-        font-size: 1.125rem;
-    }
-    .main-header nav {
-        margin-top: 0;
-    }
-}
-
-/* Section Styling */
-section {
-    padding: 3rem 1rem; /* Default padding */
-    text-align: center;
-}
-
-section:nth-of-type(even) {
-    background-color: var(--bg-color-light);
-}
-
-section:nth-of-type(odd) {
-    background-color: var(--bg-color-light); /* Keep light for now, can change if needed */
-}
-
-section h2 {
-    font-size: 2.25rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-}
-
-/* Responsive Section Padding */
-@media (min-width: 640px) { /* sm */
-    section {
-        padding: 4rem 1.5rem;
-    }
-}
-
-@media (min-width: 768px) { /* md */
-    section {
-        padding: 5rem 2rem;
-    }
-}
-
-/* Before-and-After Section */
-.before-after-section {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-light);
-    padding-top: 5rem; /* More space for the header */
-    padding-bottom: 5rem;
-}
-
-.mission-statement {
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
-    font-size: 1.125rem;
-    line-height: 1.8;
-}
-
-.before-after-container {
-    position: relative;
-    width: 90%; /* Fluid width */
-    max-width: 900px; /* Max width for larger screens */
-    margin: 0 auto;
-    overflow: hidden; /* Crucial for clipping */
-    border-radius: 1rem; /* Rounded corners */
-    box-shadow: 0 10px 15px -3px var(--shadow-md);
-    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
-    cursor: ew-resize; /* East-west resize cursor */
-}
-
-.before-after-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cover the container */
-    pointer-events: none; /* Ignore mouse events on images to allow dragging slider */
-}
-
-.before-after-container .after-image {
-    clip-path: inset(0 0 0 50%); /* Initially show half of the 'after' image */
-}
-
-.before-after-container .slider-handle {
-    position: absolute;
-    top: 0;
-    left: 50%; /* Start in the middle */
-    width: 4px; /* Thin line */
-    height: 100%;
-    background-color: var(--secondary-color); /* Bright color for visibility */
-    transform: translateX(-50%); /* Center the handle */
-    z-index: 10;
-}
-
-.before-after-container .slider-handle::before,
-.before-after-container .slider-handle::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--secondary-color);
-    border-radius: 50%;
-    z-index: 11;
-}
-
-.before-after-container .slider-handle::before {
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--text-color-light);
-}
-
-.before-after-container .slider-handle::after {
-    width: 12px;
-    height: 12px;
-    background-color: var(--text-color-light);
-}
-
-
-.slider-captions {
-    display: flex;
-    justify-content: space-between;
-    max-width: 900px;
-    width: 90%;
-    margin: 1rem auto 0 auto;
-    font-size: 0.9rem;
-    color: var(--text-color-light);
-    opacity: 0.8;
-}
-
-/* Timeline Section */
-.timeline-section {
-    background-color: var(--bg-color-light);
-}
-
-.timeline-container {
-    display: flex;
-    flex-direction: column; /* Stack vertically on small screens */
-    gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.timeline-event {
-    background-color: var(--card-bg);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    text-align: left;
-    box-shadow: 0 4px 6px -1px var(--shadow-light);
-    border: 1px solid var(--border-color);
-    position: relative;
-}
-
-.timeline-event::before {
-    content: '';
-    position: absolute;
-    left: -1rem; /* Adjust to align with timeline line */
-    top: 1.5rem;
-    width: 1rem;
-    height: 1rem;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    border: 3px solid var(--bg-color-light);
-    z-index: 1;
-}
-
-.timeline-event:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: -0.6rem; /* Adjust to align with timeline line */
-    top: 2.5rem;
-    bottom: -2rem; /* Extend line downwards */
-    width: 2px;
-    background-color: var(--border-color);
-    z-index: 0;
-}
-
-
-.event-date {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.timeline-event h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-color-dark);
-    margin-bottom: 0.75rem;
-}
-
-.timeline-event p {
-    font-size: 1rem;
-    color: var(--text-color-dark);
-    margin-bottom: 1rem;
-}
-
-.government-release-link a {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: var(--text-color-light);
-    padding: 0.6rem 1.2rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.government-release-link a:hover {
-    background-color: #059669; /* Green-600 */
-    transform: translateY(-2px);
-}
-
-/* Responsive Timeline */
-@media (min-width: 768px) { /* md */
-    .timeline-container {
-        /* This will be handled by a potential grid layout or more complex flex for alternating sides */
-        /* For now, keep simple vertical stack */
-    }
-}
-
-/* Deeper Look Section */
-.deeper-look-section {
-    background-color: var(--primary-color);
-    color: var(--text-color-light);
-    padding: 5rem 1rem;
-}
-
-.deeper-look-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.deeper-look-section h2 {
-    color: var(--text-color-light);
-}
-
-.deeper-look-section p {
-    font-size: 1.125rem;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-    opacity: 0.9;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--secondary-color);
-    color: var(--text-color-light);
-    padding: 1rem 2rem;
-    border-radius: 0.75rem;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px -1px var(--shadow-md);
-}
-
-.cta-button:hover {
-    background-color: #059669; /* Green-600 */
-    transform: translateY(-3px);
-}
-
-/* Donation Section */
-.donate-section {
-    background-color: var(--bg-color-light);
-    padding: 5rem 1rem;
-}
-
-.donate-section p {
-    font-size: 1.125rem;
-    margin-bottom: 2rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.donate-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--text-color-light);
-    padding: 1rem 2.5rem;
-    border-radius: 0.75rem;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px -1px var(--shadow-md);
-}
-
-.donate-button:hover {
-    background-color: #2563EB; /* Blue-600 */
-    transform: translateY(-3px);
-}
-
-/* Footer Styling */
-.main-footer {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-light);
-    padding: 2rem 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-/* Basic responsiveness for images */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Remove extra space below images */
-}
-
+</body>
+</html>
