@@ -1,0 +1,428 @@
+/* Import Google Font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* Base Styles & Reset */
+:root {
+    --primary-color: #3B82F6; /* Blue-500 */
+    --secondary-color: #10B981; /* Green-500 */
+    --text-color-dark: #1F2937; /* Gray-900 */
+    --text-color-light: #F9FAFB; /* Gray-50 */
+    --bg-color-light: #F9FAFB; /* Gray-50 */
+    --bg-color-dark: #1F2937; /* Gray-900 */
+    --card-bg: #FFFFFF; /* White */
+    --border-color: #E5E7EB; /* Gray-200 */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-md: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    background-color: var(--bg-color-light);
+    scroll-behavior: smooth;
+}
+
+/* Utility Classes (mimicking Tailwind for responsiveness) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem; /* Default padding for small screens */
+}
+
+/* Responsive Padding */
+@media (min-width: 640px) { /* sm */
+    .container {
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 768px) { /* md */
+    .container {
+        padding: 2rem;
+    }
+}
+
+/* Header Styling */
+.main-header {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.main-header p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.main-header nav {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: center;
+    gap: 1rem;
+}
+
+.main-header nav a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-header nav a:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color-light);
+}
+
+/* Responsive Header */
+@media (min-width: 768px) { /* md */
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .main-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
+    .main-header p {
+        font-size: 1.125rem;
+    }
+    .main-header nav {
+        margin-top: 0;
+    }
+}
+
+/* Section Styling */
+section {
+    padding: 3rem 1rem; /* Default padding */
+    text-align: center;
+}
+
+section:nth-of-type(even) {
+    background-color: var(--bg-color-light);
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--bg-color-light); /* Keep light for now, can change if needed */
+}
+
+section h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* Responsive Section Padding */
+@media (min-width: 640px) { /* sm */
+    section {
+        padding: 4rem 1.5rem;
+    }
+}
+
+@media (min-width: 768px) { /* md */
+    section {
+        padding: 5rem 2rem;
+    }
+}
+
+/* Before-and-After Section */
+.before-after-section {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    padding-top: 5rem; /* More space for the header */
+    padding-bottom: 5rem;
+}
+
+.mission-statement {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.125rem;
+    line-height: 1.8;
+}
+
+.before-after-container {
+    position: relative;
+    width: 90%; /* Fluid width */
+    max-width: 900px; /* Max width for larger screens */
+    margin: 0 auto;
+    overflow: hidden; /* Crucial for clipping */
+    border-radius: 1rem; /* Rounded corners */
+    box-shadow: 0 10px 15px -3px var(--shadow-md);
+    aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+    cursor: ew-resize; /* East-west resize cursor */
+}
+
+.before-after-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container */
+    pointer-events: none; /* Ignore mouse events on images to allow dragging slider */
+}
+
+.before-after-container .after-image {
+    clip-path: inset(0 0 0 50%); /* Initially show half of the 'after' image */
+}
+
+.before-after-container .slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Start in the middle */
+    width: 4px; /* Thin line */
+    height: 100%;
+    background-color: var(--secondary-color); /* Bright color for visibility */
+    transform: translateX(-50%); /* Center the handle */
+    z-index: 10;
+}
+
+.before-after-container .slider-handle::before,
+.before-after-container .slider-handle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    z-index: 11;
+}
+
+.before-after-container .slider-handle::before {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--text-color-light);
+}
+
+.before-after-container .slider-handle::after {
+    width: 12px;
+    height: 12px;
+    background-color: var(--text-color-light);
+}
+
+
+.slider-captions {
+    display: flex;
+    justify-content: space-between;
+    max-width: 900px;
+    width: 90%;
+    margin: 1rem auto 0 auto;
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    opacity: 0.8;
+}
+
+/* Timeline Section */
+.timeline-section {
+    background-color: var(--bg-color-light);
+}
+
+.timeline-container {
+    display: flex;
+    flex-direction: column; /* Stack vertically on small screens */
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline-event {
+    background-color: var(--card-bg);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    box-shadow: 0 4px 6px -1px var(--shadow-light);
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -1rem; /* Adjust to align with timeline line */
+    top: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--bg-color-light);
+    z-index: 1;
+}
+
+.timeline-event:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: -0.6rem; /* Adjust to align with timeline line */
+    top: 2.5rem;
+    bottom: -2rem; /* Extend line downwards */
+    width: 2px;
+    background-color: var(--border-color);
+    z-index: 0;
+}
+
+
+.event-date {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-event h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    margin-bottom: 0.75rem;
+}
+
+.timeline-event p {
+    font-size: 1rem;
+    color: var(--text-color-dark);
+    margin-bottom: 1rem;
+}
+
+.government-release-link a {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.government-release-link a:hover {
+    background-color: #059669; /* Green-600 */
+    transform: translateY(-2px);
+}
+
+/* Responsive Timeline */
+@media (min-width: 768px) { /* md */
+    .timeline-container {
+        /* This will be handled by a potential grid layout or more complex flex for alternating sides */
+        /* For now, keep simple vertical stack */
+    }
+}
+
+/* Deeper Look Section */
+.deeper-look-section {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 5rem 1rem;
+}
+
+.deeper-look-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.deeper-look-section h2 {
+    color: var(--text-color-light);
+}
+
+.deeper-look-section p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px -1px var(--shadow-md);
+}
+
+.cta-button:hover {
+    background-color: #059669; /* Green-600 */
+    transform: translateY(-3px);
+}
+
+/* Donation Section */
+.donate-section {
+    background-color: var(--bg-color-light);
+    padding: 5rem 1rem;
+}
+
+.donate-section p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.donate-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 1rem 2.5rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px -1px var(--shadow-md);
+}
+
+.donate-button:hover {
+    background-color: #2563EB; /* Blue-600 */
+    transform: translateY(-3px);
+}
+
+/* Footer Styling */
+.main-footer {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-light);
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Basic responsiveness for images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below images */
+}
+
